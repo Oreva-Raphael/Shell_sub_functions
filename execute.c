@@ -67,10 +67,8 @@ int execute(char *instruct)
                 {
                     displayout("\n");
                 }
-                else{
-                    perror("Unknown command");
-                    exit(EXIT_FAILURE);
-                }
+                perror("Unknown command");
+                exit(EXIT_FAILURE);
             }
         }
         else
