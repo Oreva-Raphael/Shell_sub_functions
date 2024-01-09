@@ -7,5 +7,5 @@
 
 void _prompt(void)
 {
-    displayout("$ ");
+    displayout("Shell~$ ");
 }
