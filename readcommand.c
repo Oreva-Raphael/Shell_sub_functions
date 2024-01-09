@@ -21,7 +21,7 @@ char **readcommand(size_t *token_no)
             perror("Malloc failed.");
             exit(EXIT_FAILURE);
         }
-        token = strtok(input, "\n");
+        token = strtok(line, "\n");
 
         while(token != NULL && *token_no < token_lim - 1)
         {
@@ -44,6 +44,6 @@ char **readcommand(size_t *token_no)
         perror("Input termination.");
         exit(EXIT_FAILURE);
     }
-    free(input);
+    free(line);
     return (arr);
 }
