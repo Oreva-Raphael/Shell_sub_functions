@@ -12,7 +12,6 @@
 
 void displayout(const char *string);
 void _prompt(void);
-char *userinput(char *instruct);
-void exec_comm(char *instruct);
+int execute(char *instruct);
 
 #endif
