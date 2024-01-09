@@ -62,11 +62,11 @@ int execute(char *instruct)
                     exit(EXIT_FAILURE);
                 }
             }
+            else if(input[0] == '\n')
+            {
+                displayout("\n");
+            }
             else{
-                if (input[0] == '\n')
-                {
-                    displayout("\n");
-                }
                 perror("Unknown command");
                 exit(EXIT_FAILURE);
             }
