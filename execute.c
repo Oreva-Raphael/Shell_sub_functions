@@ -17,7 +17,11 @@ int execute(char *instruct)
     pid_t child;
 
     (void) instruct;
-
+    if (getline(&input, &len, stdin) == NULL)
+    {
+        displayout("\n");
+        exit(EXIT_SUCCESS);
+    }
     if (getline (&input, &len, stdin) != -1)
     {
         arr = (char **)malloc(token_lim * sizeof(char *));
@@ -76,11 +80,6 @@ int execute(char *instruct)
             }
         }
         free (arr);
-    }
-    if(getline(&input, &len, stdin) == NULL)
-    {
-        displayout("\n");
-        exit(EXIT_SUCCESS);
     }
     else 
     {
