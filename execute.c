@@ -18,6 +18,11 @@ int execute(char *instruct)
 
     (void) instruct;
 
+    if (input[0] == '\n')
+    {
+        displayout("\n");
+        exit(EXIT_SUCCESS);
+    }
     if (getline (&input, &len, stdin) != -1)
     {
         arr = (char **)malloc(token_lim * sizeof(char *));
@@ -61,10 +66,6 @@ int execute(char *instruct)
                     perror("execution failed");
                     exit(EXIT_FAILURE);
                 }
-            }
-            if(input[0] == '\n')
-            {
-                displayout("\n");
             }
             else{
                 perror("Unknown command");
