@@ -11,10 +11,9 @@ int execute(char *instruct)
     size_t i;
     pid_t child;
     size_t token_no;
+    char **arr = readcommand(&token_no);
 
     (void) instruct;
-
-    char **arr = readcommand(&token_no);
 
     if (arr != NULL)
     {
@@ -57,4 +56,5 @@ int execute(char *instruct)
     {
         exit(EXIT_FAILURE);
     }
+    return (0);
 }
