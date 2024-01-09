@@ -62,7 +62,7 @@ int execute(char *instruct)
                     exit(EXIT_FAILURE);
                 }
             }
-            else if(input[0] == '\n')
+            if(input[0] == '\n')
             {
                 displayout("\n");
             }
