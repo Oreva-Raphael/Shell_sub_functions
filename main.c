@@ -1,8 +1,8 @@
 #include "sh.h"
 /**
+ * main - Entry point
  * 
- * 
- * 
+ * return: 0 (Successful)
  */
 int main(void)
 {

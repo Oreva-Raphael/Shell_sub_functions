@@ -1,11 +1,12 @@
 #include "sh.h"
 /**
+ * execute- a compound function that parses and executes commands
  * 
+ * @instruct: the instruction passed
  * 
- * 
- * 
- * 
+ * return: 0 (Successful)
  */
+int execute(char *instruct)
 {
     char *input = NULL;
     char *token;
@@ -76,6 +77,11 @@
         }
         free (arr);
     }
+    if (getline(&line, &len, stdin) == NULL)
+    {
+        displayout("\n")
+        exit(EXIT_SUCCESS);
+    }
     else 
     {
         perror("Input termination");
@@ -84,4 +90,3 @@
     free(input);
     return (0);
 }
-
