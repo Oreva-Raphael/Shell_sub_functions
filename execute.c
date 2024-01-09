@@ -80,7 +80,6 @@ int execute(char *instruct)
     if (input[0] == '\n')
     {
         displayout("\n");
-        exit(EXIT_SUCCESS);
     }
     else 
     {
