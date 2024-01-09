@@ -8,7 +8,7 @@
  */
 int execute(char *instruct)
 {
-    int i;
+    size_t i;
     pid_t child;
     size_t token_no;
 
@@ -57,5 +57,4 @@ int execute(char *instruct)
     {
         exit(EXIT_FAILURE);
     }
-
 }
