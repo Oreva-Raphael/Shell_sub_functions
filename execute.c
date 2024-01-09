@@ -8,64 +8,37 @@
  */
 int execute(char *instruct)
 {
-    char *input = NULL;
-    char *token;
-    size_t len = 0;
-    char **arr = NULL;
-    int token_no = 0;
     int i;
     pid_t child;
+    size_t token_no;
 
     (void) instruct;
 
-    if (getline (&input, &len, stdin) != -1)
+    char **arr = readcommand(&token_no);
+
+    child = fork();
+
+    if (child < 0)
     {
-        arr = (char **)malloc(token_lim * sizeof(char *));
-           
-        if (arr == NULL)
-        {
-            perror("Malloc failed.");
-            exit(EXIT_FAILURE);
-        }
-        token = strtok(input, "\n");
-
-        while(token != NULL && token_no < token_lim - 1)
-        {
-            arr[token_no] = strdup(token);
-            if (arr[token_no] ==  NULL)
-            {
-                perror("Tokenization failure");
-                exit(EXIT_FAILURE);
-            }
-            token = strtok(NULL, "\n");
-            token_no++;
-        }
-        arr[token_no]= NULL;
-        
-        child = fork();
-
-        if (child < 0)
-        {
-            perror("Fork failed");
-            exit(EXIT_FAILURE);
-        }
-        if (child == 0)
-        {
-            char *path = "/bin/ls";
-            char *execarg[] = {"/bin/ls", "./", NULL};
+        perror("Fork failed");
+        exit(EXIT_FAILURE);
+    }
+    if (child == 0)
+    {
+        char *path = "/bin/ls";
+        char *execarg[] = {"/bin/ls", "./", NULL};
                 
-            if (token_no > 0 && strcmp(arr[0], path) == 0)
+        if (token_no > 0 && strcmp(arr[0], path) == 0)
+        {
+            if (execve(execarg[0], execarg, NULL) == -1)
             {
-                if (execve(execarg[0], execarg, NULL) == -1)
-                {
-                    perror("execution failed");
-                    exit(EXIT_FAILURE);
-                }
-            }
-            else{
-                perror("No such file or directory");
+                perror("execution failed");
                 exit(EXIT_FAILURE);
             }
+        }
+        else{
+            perror("No such file or directory");
+            exit(EXIT_FAILURE);
         }
         else
         {
