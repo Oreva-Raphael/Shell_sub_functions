@@ -63,4 +63,7 @@ int execute(char *instruct)
         free(input);
         return (0);
     }
+    else{
+        exit(EXIT_FAILURE);
+    }
 }
