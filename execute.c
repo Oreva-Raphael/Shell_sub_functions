@@ -63,8 +63,14 @@ int execute(char *instruct)
                 }
             }
             else{
-                perror("Unknown command");
-                exit(EXIT_FAILURE);
+                if (input[0] == '\n')
+                {
+                    displayout("\n");
+                }
+                else{
+                    perror("Unknown command");
+                    exit(EXIT_FAILURE);
+                }
             }
         }
         else
@@ -76,10 +82,6 @@ int execute(char *instruct)
             }
         }
         free (arr);
-    }
-    if (input[0] == '\n')
-    {
-        displayout("\n");
     }
     else 
     {
