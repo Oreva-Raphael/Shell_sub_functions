@@ -32,7 +32,7 @@ char **readcommand(size_t *token_no)
                 exit(EXIT_FAILURE);
             }
             token = strtok(NULL, "\n");
-            *token_no++;
+            (*token_no)++;
         }
         arr[*token_no]= NULL;
     }
