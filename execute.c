@@ -1,6 +1,9 @@
 #include "sh.h"
-
-int execute(char *instruct)
+/**
+*
+*
+*
+*
 {
     char *input = NULL;
     char *token;
@@ -79,3 +82,4 @@ int execute(char *instruct)
     free(input);
     return (0);
 }
+
