@@ -6,13 +6,13 @@
  */
 char **readcommand(size_t *token_no)
 {
-    char *input = NULL;
+    char *line = NULL;
     size_t len = 0;
     char **arr = NULL;
     char *token;
     *token_no = 0;
 
-    if (getline(&input, &len, stdin) != -1)
+    if (getline(&line, &len, stdin) != -1)
     {
         arr = (char **)malloc(token_lim * sizeof(char *));
 
@@ -36,7 +36,7 @@ char **readcommand(size_t *token_no)
         }
         arr[*token_no]= NULL;
     }
-    else if (input[0] == '\n')
+    else if (line[0] == '\n')
     {
         displayout("\n");
     }
