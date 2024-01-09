@@ -52,18 +52,10 @@ int execute(char *instruct)
             }
             free (arr);
         }
-        else if (input[0] == '\n'){
-            displayout("\n");
-        }
-        else
-        {
-            perror("Input termination");
-            exit(EXIT_FAILURE);
-        }
-        free(input);
-        return (0);
     }
-    else{
+    else
+    {
         exit(EXIT_FAILURE);
     }
+
 }
