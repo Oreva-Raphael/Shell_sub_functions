@@ -77,6 +77,11 @@ int execute(char *instruct)
         }
         free (arr);
     }
+    if(getline(&input, &len, stdin) == NULL)
+    {
+        displayout("\n");
+        exit(EXIT_SUCCESS);
+    }
     else 
     {
         perror("Input termination");
