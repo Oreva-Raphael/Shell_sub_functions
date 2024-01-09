@@ -63,7 +63,7 @@ int execute(char *instruct)
                 }
             }
             else{
-                perror("Unknown command");
+                perror("Unknown or NULL command");
                 exit(EXIT_FAILURE);
             }
         }
