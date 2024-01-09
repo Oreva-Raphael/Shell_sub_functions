@@ -7,12 +7,12 @@
 char **readcommand(size_t *token_no)
 {
     char *input = NULL;
-    char *token;
     size_t len = 0;
     char **arr = NULL;
+    char *token;
     *token_no = 0;
 
-    if (getline(&input, &len, sidin) != -1)
+    if (getline(&input, &len, stdin) != -1)
     {
         arr = (char **)malloc(token_lim * sizeof(char *));
 
