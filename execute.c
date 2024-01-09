@@ -42,16 +42,16 @@ int execute(char *instruct)
                 perror("No such file or directory");
                 exit(EXIT_FAILURE);
             }
-            else
-            {
-                wait (NULL);
-                for (i = 0; i < token_no; i++)
-                {
-                    free(arr[i]);
-                }
-            }
-            free (arr);
         }
+        else
+        {
+            wait (NULL);
+            for (i = 0; i < token_no; i++)
+            {
+                free(arr[i]);
+            }
+        }
+        free (arr);
     }
     else
     {
