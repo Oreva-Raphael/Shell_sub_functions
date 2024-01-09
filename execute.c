@@ -77,9 +77,9 @@ int execute(char *instruct)
         }
         free (arr);
     }
-    if (getline(&line, &len, stdin) == NULL)
+    if (getline(&input, &len, stdin) == NULL)
     {
-        displayout("\n")
+        displayout("\n");
         exit(EXIT_SUCCESS);
     }
     else 
