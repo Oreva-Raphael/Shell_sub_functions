@@ -63,7 +63,7 @@ int execute(char *instruct)
                 }
             }
             else{
-                perror("Unknown or NULL command");
+                perror("No such file or directory");
                 exit(EXIT_FAILURE);
             }
         }
