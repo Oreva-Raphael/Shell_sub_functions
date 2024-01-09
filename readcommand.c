@@ -12,7 +12,7 @@ char **readcommand(size_t *token_no)
     char **arr = NULL;
     *token_no = 0;
 
-    if (getline(&input, &len, sidin) = -1)
+    if (getline(&input, &len, sidin) != -1)
     {
         arr = (char **)malloc(token_lim * sizeof(char *));
 
@@ -34,17 +34,16 @@ char **readcommand(size_t *token_no)
             token = strtok(NULL, "\n");
             *token_no++;
         }
-        arr[token_no]= NULL;
+        arr[*token_no]= NULL;
     }
     else if (input[0] == '\n')
     {
         displayout("\n");
     }
     else{
-        perror("Input termination.")
+        perror("Input termination.");
         exit(EXIT_FAILURE);
     }
     free(input);
     return (arr);
 }
-

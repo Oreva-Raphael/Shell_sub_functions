@@ -11,6 +11,7 @@
 #define token_lim 20
 
 void displayout(const char *string);
+char **readcommand(size_t *token_no);
 void _prompt(void);
 int execute(char *instruct);
 
