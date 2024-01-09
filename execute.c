@@ -18,11 +18,6 @@ int execute(char *instruct)
 
     (void) instruct;
 
-    if (input[0] == '\n')
-    {
-        displayout("\n");
-        exit(EXIT_SUCCESS);
-    }
     if (getline (&input, &len, stdin) != -1)
     {
         arr = (char **)malloc(token_lim * sizeof(char *));
@@ -82,7 +77,10 @@ int execute(char *instruct)
         }
         free (arr);
     }
-    else 
+    else if (input[0] == '\n'){
+        displayout("\n");
+    }
+    else
     {
         perror("Input termination");
         exit(EXIT_FAILURE);
